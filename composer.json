@@ -1,0 +1,57 @@
+{
+    "name": "vinitkadam03/laravel-ai-phoenix",
+    "description": "Arize Phoenix integration for the Laravel AI SDK. Wires up a TracerProvider that ships gen_ai.* spans to Phoenix via OTLP.",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "ai",
+        "phoenix",
+        "arize",
+        "opentelemetry",
+        "observability"
+    ],
+    "homepage": "https://github.com/vinitkadam03/laravel-ai-phoenix",
+    "support": {
+        "issues": "https://github.com/vinitkadam03/laravel-ai-phoenix/issues",
+        "source": "https://github.com/vinitkadam03/laravel-ai-phoenix"
+    },
+    "require": {
+        "php": "^8.3",
+        "illuminate/contracts": "^12.0|^13.0",
+        "illuminate/support": "^12.0|^13.0",
+        "open-telemetry/api": "^1.0",
+        "open-telemetry/exporter-otlp": "^1.4",
+        "open-telemetry/sdk": "^1.14",
+        "vinitkadam03/laravel-ai-telemetry": "^1.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^10.6|^11.0",
+        "pestphp/pest": "^3.0|^4.0",
+        "pestphp/pest-plugin-laravel": "^3.0|^4.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Vinit\\LaravelAiPhoenix\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Vinit\\LaravelAiPhoenix\\PhoenixServiceProvider"
+            ]
+        }
+    }
+}
