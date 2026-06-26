@@ -5,6 +5,7 @@ namespace Vinit\LaravelAiPhoenix;
 use Illuminate\Support\ServiceProvider;
 use OpenTelemetry\API\Common\Time\Clock;
 use OpenTelemetry\API\Globals;
+use OpenTelemetry\API\Instrumentation\Configurator;
 use OpenTelemetry\Contrib\Otlp\ContentTypes;
 use OpenTelemetry\Contrib\Otlp\OtlpHttpTransportFactory;
 use OpenTelemetry\Contrib\Otlp\SpanExporter;
@@ -23,7 +24,7 @@ class PhoenixServiceProvider extends ServiceProvider
         // Register the TracerProvider before the telemetry package resolves its driver,
         // so Globals::tracerProvider() returns the Phoenix-backed provider when the
         // otel driver calls it on first use.
-        Globals::registerInitializer(function () {
+        Globals::registerInitializer(function (Configurator $configurator) {
             $endpoint = config('phoenix.endpoint', 'https://app.phoenix.arize.com/v1/traces');
             $project = config('phoenix.project', config('app.name', 'laravel'));
             $timeout = (float) config('phoenix.timeout', 5.0);
@@ -43,7 +44,7 @@ class PhoenixServiceProvider extends ServiceProvider
                 )
             );
 
-            return new TracerProvider(
+            $tracerProvider = new TracerProvider(
                 spanProcessors: [new BatchSpanProcessor($exporter, Clock::getDefault())],
                 sampler: new AlwaysOnSampler,
                 resource: ResourceInfo::create(Attributes::create([
@@ -52,6 +53,8 @@ class PhoenixServiceProvider extends ServiceProvider
                     'telemetry.sdk.language' => 'php',
                 ])),
             );
+
+            return $configurator->withTracerProvider($tracerProvider);
         });
     }
 
