@@ -37,6 +37,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/vinitkadam/laravel-ai-telemetry.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/vinitkadam03/ai.git"
         }
     ],
     "minimum-stability": "dev",
