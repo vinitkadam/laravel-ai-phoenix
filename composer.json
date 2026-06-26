@@ -1,5 +1,5 @@
 {
-    "name": "vinitkadam03/laravel-ai-phoenix",
+    "name": "vinitkadam/laravel-ai-phoenix",
     "description": "Arize Phoenix integration for the Laravel AI SDK. Wires up a TracerProvider that ships gen_ai.* spans to Phoenix via OTLP.",
     "license": "MIT",
     "keywords": [
@@ -10,10 +10,10 @@
         "opentelemetry",
         "observability"
     ],
-    "homepage": "https://github.com/vinitkadam03/laravel-ai-phoenix",
+    "homepage": "https://github.com/vinitkadam/laravel-ai-phoenix",
     "support": {
-        "issues": "https://github.com/vinitkadam03/laravel-ai-phoenix/issues",
-        "source": "https://github.com/vinitkadam03/laravel-ai-phoenix"
+        "issues": "https://github.com/vinitkadam/laravel-ai-phoenix/issues",
+        "source": "https://github.com/vinitkadam/laravel-ai-phoenix"
     },
     "require": {
         "php": "^8.3",
@@ -22,7 +22,7 @@
         "open-telemetry/api": "^1.0",
         "open-telemetry/exporter-otlp": "^1.4",
         "open-telemetry/sdk": "^1.14",
-        "vinitkadam03/laravel-ai-telemetry": "^1.0"
+        "vinitkadam/laravel-ai-telemetry": "^1.0"
     },
     "require-dev": {
         "orchestra/testbench": "^10.6|^11.0",
