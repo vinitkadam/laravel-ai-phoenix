@@ -22,7 +22,7 @@
         "open-telemetry/api": "^1.0",
         "open-telemetry/exporter-otlp": "^1.4",
         "open-telemetry/sdk": "^1.14",
-        "vinitkadam/laravel-ai-telemetry": "^1.0"
+        "vinitkadam/laravel-ai-telemetry": "^0.1"
     },
     "require-dev": {
         "orchestra/testbench": "^10.6|^11.0",

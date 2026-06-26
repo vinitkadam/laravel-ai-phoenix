@@ -14,7 +14,7 @@ Laravel AI Phoenix wires [Arize Phoenix](https://phoenix.arize.com) as the OpenT
 
 - PHP 8.3+
 - Laravel 12+
-- [vinitkadam/laravel-ai-telemetry](https://github.com/vinitkadam/laravel-ai-telemetry) ^1.0
+- [vinitkadam/laravel-ai-telemetry](https://github.com/vinitkadam/laravel-ai-telemetry) ^0.1
 
 ## Installation
 
