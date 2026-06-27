@@ -3,7 +3,6 @@
 namespace Vinit\LaravelAiPhoenix;
 
 use Illuminate\Support\ServiceProvider;
-use OpenTelemetry\API\Common\Time\Clock;
 use OpenTelemetry\API\Globals;
 use OpenTelemetry\API\Instrumentation\Configurator;
 use OpenTelemetry\Contrib\Otlp\ContentTypes;
@@ -12,7 +11,7 @@ use OpenTelemetry\Contrib\Otlp\SpanExporter;
 use OpenTelemetry\SDK\Common\Attribute\Attributes;
 use OpenTelemetry\SDK\Resource\ResourceInfo;
 use OpenTelemetry\SDK\Trace\Sampler\AlwaysOnSampler;
-use OpenTelemetry\SDK\Trace\SpanProcessor\BatchSpanProcessor;
+use OpenTelemetry\SDK\Trace\SpanProcessor\SimpleSpanProcessor;
 use OpenTelemetry\SDK\Trace\TracerProvider;
 
 class PhoenixServiceProvider extends ServiceProvider
@@ -45,7 +44,7 @@ class PhoenixServiceProvider extends ServiceProvider
             );
 
             $tracerProvider = new TracerProvider(
-                spanProcessors: [new BatchSpanProcessor($exporter, Clock::getDefault())],
+                spanProcessors: [new SimpleSpanProcessor($exporter)],
                 sampler: new AlwaysOnSampler,
                 resource: ResourceInfo::create(Attributes::create([
                     'service.name' => $project,
